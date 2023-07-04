@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  accounts.alina: apiKey, login
+  accounts.user123: apiKey, login
