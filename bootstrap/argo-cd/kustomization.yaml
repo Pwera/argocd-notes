@@ -18,5 +18,5 @@ resources:
 - resources/servicemonitor/servicemonitor-argocd-metrics.yaml
 - resources/servicemonitor/servicemonitor-argocd-repo-server-metrics.yaml
 - resources/servicemonitor/servicemonitor-argocd-server-metrics.yaml
-patches:
+patchesStrategicMerge:
 - resources/argocd-cm.yml
