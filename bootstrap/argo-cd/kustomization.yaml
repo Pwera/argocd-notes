@@ -15,5 +15,6 @@ kind: Kustomization
 namespace: argocd
 resources:
 - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.15
+- resources/servicemonitor/*.yaml
 patchesStrategicMerge:
 - resources/argocd-cm.yml

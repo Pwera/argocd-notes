@@ -26,7 +26,20 @@ NAME   ENABLED  CAPABILITIES
 admin  true     login
 ```
 
+Creating the backup
+```bash
+argocd admin export -n argocd > backup-$(date +"%Y-%m-%d_%H:%M").yml
+```
 
+Restoring the backup
+```bash
+argocd admin import - < backup-2021-09-15_18:16.yml
+```
+
+Port forward
+```bash
+kubectl port-forward pod/argocd-server-5df56f89ff-642c5 -n argocd 8080:8080
+```
 
 
 argocd app create nginx --repo https://charts.bitnami.com/bitnami --helm-chart nginx --revision 13.2.10 --dest-server https://kubernetes.default.svc --dest-namespace nginx
@@ -35,4 +48,3 @@ argocd app create nginx --repo https://charts.bitnami.com/bitnami --helm-chart n
 
 
 ヾ(⌐■_■)ノ♪
-kubectl port-forward svc/argocd-server -n argocd 8080:80
