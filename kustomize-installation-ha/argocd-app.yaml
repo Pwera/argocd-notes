@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync.gitlab: ""
+  name: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kustomize-installation-ha
+    repoURL: https://github.com/Pwera/argocd-notes.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}
